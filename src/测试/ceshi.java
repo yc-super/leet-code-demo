@@ -23,13 +23,41 @@ public class ceshi {
 
 //        System.out.println(0%3);
 
-        String s="1,2,3,";
+        /*String s="1,2,3,";
         String[] split = s.split(",");
         for (int i = 0; i < split.length; i++) {
             System.out.println(split[i]);
         }
-        System.out.println(split.length);
-/*
+        System.out.println(split.length);*/
+
+        /*Integer a = Integer.valueOf(123);
+        Integer b = Integer.valueOf(123);
+        Integer c=new Integer(123);
+        System.out.println(a==b);
+        System.out.println(a==c);*/
+
+        /*System.out.println("1");
+        assert true;
+        System.out.println("2");
+        assert false:"stop";
+        System.out.println("end");*/
+
+
+        System.out.println(0%6);
+
+
+
+
+        /*int a=127;
+        int b=127;
+        System.out.println(a==b);
+
+        int c=128;
+        int d=128;
+        System.out.println(c==d);//基本类型的==比较的是值*/
+
+
+        /*
 *
 *
 * 1.刷算法题（重要，需要长时间的积累）
