@@ -6,6 +6,20 @@ import java.util.regex.Pattern;
 
 public class ceshi {
     public static void main(String[] args) {
+
+
+
+
+
+
+
+
+
+
+
+
+        System.out.println(0%3);
+
        /* String s="-10.0";
 //        String pa="^(([1-8]\\d?)|([1-8]\\d))(\\.\\d{1,6})|90|0(\\.\\d{1,6})?$";
         String pa="/^[\\-\\+]?(0?\\d{1,2}\\.\\d{1,5}|1[0-7]?\\d{1}\\.\\d{1,5}|180\\.0{1,5})$/";
@@ -41,11 +55,6 @@ public class ceshi {
         System.out.println("2");
         assert false:"stop";
         System.out.println("end");*/
-
-
-        System.out.println(0%6);
-
-
 
 
         /*int a=127;
