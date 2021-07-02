@@ -17,8 +17,8 @@ public class ceshi {
 
 
 
-
-        System.out.println(0%3);
+        Student s=new Student();
+        System.out.println("name:"+s.getName()+",age:"+s.getAge());
 
        /* String s="-10.0";
 //        String pa="^(([1-8]\\d?)|([1-8]\\d))(\\.\\d{1,6})|90|0(\\.\\d{1,6})?$";
