@@ -8,9 +8,6 @@ public class MyCode {
     public static void main(String[] args) {
         int[] candidates={2,3,6,7};//[[7],[2,2,3]]
         int target=7;
-
-//        int[] candidates={2,3,5};//[[2,2,2,2],[2,3,3],[3,5]]
-//        int[] target=8;
         long l = System.currentTimeMillis();
         Arrays.sort(candidates);
         List<List<Integer>> list=new MyCode().combinationSum(candidates,target);
