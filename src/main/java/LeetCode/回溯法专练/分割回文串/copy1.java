@@ -1,39 +1,35 @@
-package LeetCode.分割回文串;
+package LeetCode.回溯法专练.分割回文串;
 
 import java.util.ArrayList;
 import java.util.List;
-/*
-* 回溯法应用
-* */
-public class code {
-    public static void main(String[] args) {
-        String s="aab";
-        System.out.println(new code().partition(s));
-    }
 
-    static List<List<String>> res=new ArrayList<List<String>>();
-    public List<List<String>> partition(String s) {
-        if(s==null||s.length()==0)
+public class copy1 {
+    public static void main(String[] args) {
+        String s="abcc";
+        System.out.println(new copy1().partition(s));
+    }
+    private List<List<String>> res=new ArrayList<>();
+    private List<List<String>> partition(String s) {
+        if(s==null||s.equals("")){
             return res;
-        List<String> list=new ArrayList<String>();
-        operater(s,0,list);
+        }
+        operate(s,0,new ArrayList<String>());
         return res;
     }
-    //回溯法找所有满足条件的集合
-    private static void operater(String s,int start,List<String> list){
+
+    private void operate(String s, int start, ArrayList<String> list) {
         if(start==s.length()){
-            res.add(new ArrayList<String>(list));
+            res.add(new ArrayList<>(list));
             return;
         }
-        for(int i=start;i<s.length();i++){
+        for (int i = start ; i < s.length(); i++) {
             String str=s.substring(start,i+1);
             if(huiwen(str)){
                 list.add(str);
-                operater(s,i+1,list);
+                operate(s,i+1,list);
                 list.remove(list.size()-1);
             }
         }
-        return;
     }
     //判断字符串是否是回文
     public static boolean huiwen(String s){

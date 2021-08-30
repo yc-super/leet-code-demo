@@ -1,73 +1,94 @@
 package 测试;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Pattern;
-
 public class ceshi {
     public static void main(String[] args) {
-
-
-
-
-
-
-
-
-
-
-
-        Student s=new Student();
-        System.out.println("name:"+s.getName()+",age:"+s.getAge());
-
-       /* String s="-10.0";
-//        String pa="^(([1-8]\\d?)|([1-8]\\d))(\\.\\d{1,6})|90|0(\\.\\d{1,6})?$";
-        String pa="/^[\\-\\+]?(0?\\d{1,2}\\.\\d{1,5}|1[0-7]?\\d{1}\\.\\d{1,5}|180\\.0{1,5})$/";
-        System.out.println(Pattern.matches(pa,s));*/
-
-//        String a="12";
-//        System.out.println(a.indexOf("."));
-
-        /*String regex="^[+-]?+[0-9]{1,3}+(\\.[0-9]{1,20})?$";
-        String s="-0.0234234";
-        System.out.println(Pattern.matches(regex,s));
-*/
-//        String s="123";
-//        System.out.println(s.substring(0,3));
-
-//        System.out.println(0%3);
-
-        /*String s="1,2,3,";
-        String[] split = s.split(",");
-        for (int i = 0; i < split.length; i++) {
-            System.out.println(split[i]);
+        int[] a={2,11,7,1,9,3,32};
+        mergeSort(a);
+        for (int i = 0; i < a.length; i++) {
+            System.out.println(a[i]);
         }
-        System.out.println(split.length);*/
+    }
 
-        /*Integer a = Integer.valueOf(123);
-        Integer b = Integer.valueOf(123);
-        Integer c=new Integer(123);
-        System.out.println(a==b);
-        System.out.println(a==c);*/
+    public static void mergeSort(int[] arr) {
+        sort(arr, 0, arr.length - 1);
+    }
 
-        /*System.out.println("1");
-        assert true;
-        System.out.println("2");
-        assert false:"stop";
-        System.out.println("end");*/
+    public static void sort(int[] arr, int L, int R) {
+        if(L == R) {
+            return;
+        }
+        int mid = L + ((R - L) >> 1);
+        sort(arr, L, mid);
+        sort(arr, mid + 1, R);
+        merge(arr, L, mid, R);
+    }
 
+    public static void merge(int[] arr, int L, int mid, int R) {
+        int[] temp = new int[R - L + 1];
+        int i = 0;
+        int p1 = L;
+        int p2 = mid + 1;
+        // 比较左右两部分的元素，哪个小，把那个元素填入temp中
+        while(p1 <= mid && p2 <= R) {
+            temp[i++] = arr[p1] < arr[p2] ? arr[p1++] : arr[p2++];
+        }
+        // 上面的循环退出后，把剩余的元素依次填入到temp中
+        // 以下两个while只有一个会执行
+        while(p1 <= mid) {
+            temp[i++] = arr[p1++];
+        }
+        while(p2 <= R) {
+            temp[i++] = arr[p2++];
+        }
+        // 把最终的排序的结果复制给原数组
+        for(i = 0; i < temp.length; i++) {
+            arr[L + i] = temp[i];
+        }
+    }
 
-        /*int a=127;
-        int b=127;
-        System.out.println(a==b);
+    /*private static void quickSort(int[] a,int left,int right){
+        if(left>=right)
+            return ;
+        int l=left;
+        int r=right;
+        int temp=a[l];
 
-        int c=128;
-        int d=128;
-        System.out.println(c==d);//基本类型的==比较的是值*/
+        while(l<r){
+            while(r>l&&a[r]>=temp)
+                r--;
+            a[l]=a[r];
+            while(r>l&&a[l]<=temp)
+                l++;
+            a[r--]=a[l];
+        }
+        a[l]=temp;
 
+        //拆分
+        quickSort(a,left,l-1);
+        quickSort(a,l+1,right);
+    }*/
 
-        /*
-*
+    private static void quickSort(int[] a,int left,int right){
+        if(left>=right)
+            return;
+        int l=left;//由于后面会更改left的值，这里暂存下
+        int r=right;
+        int temp=a[l];//temp就是基准数
+        while(l<r){
+            while(l<r&&a[r]>=temp)//顺序很重要，先从右往前找
+                r--;
+            a[l]=a[r];
+            while(l<r&&a[l]<=temp)
+                l++;
+            a[r--]=a[l];
+        }
+        a[l]=temp;//用基准数覆盖左右哨兵相遇下标的值
+
+        quickSort(a,left,l-1);//左序列递归快速排序
+        quickSort(a,l+1,right);//右序列递归快速排序
+    }
+}
+/*
 *
 * 1.刷算法题（重要，需要长时间的积累）
 * 2.各种小知识点：各种排序算法，设计模式，sql优化，堆栈（这个属于数据结构）（好像也不算小）
@@ -96,5 +117,4 @@ public class ceshi {
 *
 * 一周之后，总结这一周的收获，以及不足。
 * */
-    }
-}
+
