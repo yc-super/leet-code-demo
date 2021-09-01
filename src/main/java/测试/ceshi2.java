@@ -2,9 +2,9 @@ package 测试;
 
 public class ceshi2 {
     public static void main(String[] args) {
-        int a=1;
-        a+=2*3;
-        System.out.println(a);
+        char a='@';
+        System.out.println(a-'0');
+
         /*int a[]={2,5,3,7,1};
         for (int i = 0; i < a.length-1; i++) {
             int min=i;

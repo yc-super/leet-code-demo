@@ -1,12 +1,13 @@
 package LeetCode.回溯法专练.组合总和II;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class MyCode {
     public static void main(String[] args) {
-        int[] candidates = {10,1,2,7,6,1,5};
+        int[] candidates = {10,2,2,7,6,1,5};
         //1,1,2,5,6,7,10
         int target = 8;
         /*
