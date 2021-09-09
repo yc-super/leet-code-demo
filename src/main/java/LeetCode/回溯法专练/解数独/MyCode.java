@@ -43,43 +43,62 @@ public class MyCode {
                 {'.','.','.','4','1','9','.','.','5'},
                 {'.','.','.','.','8','.','.','7','9'}};
         new MyCode().solveSudoku(board);
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                System.out.print(board[i][j]);
+        for (int k = 0; k < 9; k++) {
+                for (int l = 0; l < 9; l++) {
+                    System.out.print(board[k][l]);
+                }
+                System.out.println();
             }
-            System.out.println();
-        }
+
     }
-    public void solveSudoku(char[][] board) {
-        backTrack(board,0,0,0,new ArrayList<>());
+    char[][] board=new char[9][9];
+    public void solveSudoku(char[][] b2) {
+        for (int k = 0; k < 9; k++) {
+            for (int l = 0; l < 9; l++) {
+                board[k][l]=b2[k][l];
+            }
+        }
+        backTrack(b2,board,0,0,0);
     }
 
-    private void backTrack(char[][] board, int i, int j ,int start,List<Character> list) {
-//        for (int k = 0; k < i; k++) {
-//            for (int l = 0; l < j; l++) {
-        if(i==9)
+    private void backTrack(char[][] b2,char[][] board, int i, int j ,int start) {
+        if(i==9){
+            for (int k = 0; k < 9; k++) {
+                for (int l = 0; l < 9; l++) {
+                    b2[k][l]=board[k][l];
+                }
+            }
             return;
+        }
+
+
         if(board[i][j]!='.'){
             if(j==8){
-                backTrack(board,i+1,0,0,new ArrayList<>());
+                backTrack(b2,board,i+1,0,0);
             }else {
-                backTrack(board, i, j + 1, 0, new ArrayList<>());
+                backTrack(b2,board, i, j + 1, 0);
             }
         }else {
-            list = getList(board, i, j);
-            if(list==null||list.size()==0)
-                return;
-            board[i][j] = list.get(start);
-            if(j==8){
-                backTrack(board,i+1,0,0,new ArrayList<>());
-            }else {
-                backTrack(board, i, j + 1, 0, new ArrayList<>());
+            for (int k = i; k < 9; k++) {
+                for (int l = j; l < 9; l++) {
+
+                    List<Character> list = getList(board, i, j);
+                    while(list.size()>start){
+                        board[k][l] = list.get(start);
+                        start++;
+                        if(l==8){
+                            backTrack(b2,board,k+1,0,0);
+                        }else {
+                            backTrack(b2,board, k, l + 1, 0);
+                        }
+                        board[k][l] ='.';
+
+                    }
+                    return;
+                }
             }
-            board[i][j] = list.get(++start);
+
         }
-//            }
-//
-//        }
     }
 
     private List<Character> getList(char[][] board, int i, int j) {
@@ -90,10 +109,6 @@ public class MyCode {
         for (int k = 0; k < 9; k++) {
             if(board[i][k]!='.')
                 result.remove((Character) board[i][k]);
-        }
-        for (int k = 0; k < 9; k++) {
-            if(board[k][j]!='.')
-                result.remove((Character) board[k][j]);
         }
         for (int k = 0; k < 9; k++) {
             if(board[k][j]!='.')
