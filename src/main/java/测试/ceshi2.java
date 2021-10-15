@@ -1,26 +1,25 @@
 package 测试;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ceshi2 {
     public static void main(String[] args) {
-        char a='@';
-        System.out.println(a-'0');
-
-        /*int a[]={2,5,3,7,1};
-        for (int i = 0; i < a.length-1; i++) {
-            int min=i;
-            for (int j = i+1; j < a.length; j++) {
-                if(a[j]<a[min]){
-                    min=j;
-                }
-            }
-            if(min!=i){
-                int temp=a[min];
-                a[min]=a[i];
-                a[i]=temp;
-            }
-        }
-        for (int i = 0; i < a.length; i++) {
-            System.out.println(a[i]);
-        }*/
+        /*Student student = new Student();
+        student.setId("123");
+        student.setName("小杨");
+        Student s2=new ceshi2().fixStudent(student);
+        System.out.println(s2);
+        System.out.println(student);*/
+        List<Student> list=new ArrayList<>();
+        List<Student> list2=new ArrayList<>();
+        List<Student> list3=new ArrayList<>();
+        list2.add(new Student("小明"));
+        list.addAll(list3);
+        System.out.println(list);
+    }
+    private Student fixStudent(Student student){
+        student.setName("小刘");
+        return student;
     }
 }

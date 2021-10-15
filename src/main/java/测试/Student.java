@@ -12,4 +12,12 @@ public class Student {
     private String name;
     private Integer age;
     private Integer mathScore;
+    public Student(String name){
+        this.name=name;
+    }
+    Student s;
+    public Student(String name,Student s){
+        this.name=name;
+        this.s=s;
+    }
 }
