@@ -1,4 +1,4 @@
-package 动态规划专练.不同路径II;
+package 动态规划专练.代码随想录.不同路径II;
 
 public class Code2 {
     public static void main(String[] args) {

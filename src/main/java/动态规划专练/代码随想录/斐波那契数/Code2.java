@@ -1,4 +1,4 @@
-package 动态规划专练.斐波那契数;
+package 动态规划专练.代码随想录.斐波那契数;
 
 public class Code2 {
     public static void main(String[] args) {

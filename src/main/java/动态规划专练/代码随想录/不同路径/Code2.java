@@ -1,4 +1,4 @@
-package 动态规划专练.不同路径;
+package 动态规划专练.代码随想录.不同路径;
 //果然还是有优化空间的方法，滚动数组。但是我理解不了啊呜呜呜
 public class Code2 {
     public static void main(String[] args) {

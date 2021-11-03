@@ -1,4 +1,4 @@
-package 动态规划专练.使用最小花费爬楼梯;
+package 动态规划专练.代码随想录.使用最小花费爬楼梯;
 //空间复杂度优化
 public class Code2 {
     public static void main(String[] args) {

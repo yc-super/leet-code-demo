@@ -2,10 +2,11 @@ package 测试;
 
 public class ceshi {
     public static void main(String[] args) {
-        int[] a={2,11,7,1,9,3,32};
-        mergeSort(a);
-        for (int i = 0; i < a.length; i++) {
-            System.out.println(a[i]);
+        String type="menu";
+        String[] split = type.split(",");
+        for (int i = 0; i < split.length; i++) {
+            System.out.println(split[i]);
+
         }
     }
 
