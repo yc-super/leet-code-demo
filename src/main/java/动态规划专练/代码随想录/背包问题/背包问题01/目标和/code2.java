@@ -1,4 +1,4 @@
-package 动态规划专练.代码随想录.背包问题.目标和;
+package 动态规划专练.代码随想录.背包问题.背包问题01.目标和;
 /*
 * 这道题和前面两道题不一样，这道题是求方法种数，
 * 要记住的递推公式是：dp[j]+=dp[j-nums[i]]
@@ -8,11 +8,12 @@ package 动态规划专练.代码随想录.背包问题.目标和;
 * * */
 public class code2 {
     public static void main(String[] args) {
-        //        int[] nums = {1,1,1,1,1};
+                int[] nums = {1,1,1,1,1};
 //        int[] nums = {1,2,3};
-        int[] nums = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-        int target = 0;
-        int result = new code2().findTargetSumWays2(nums, target);
+//        int[] nums = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+//        int target = 0;
+        int target = 3;
+        int result = new code2().findTargetSumWays1(nums, target);
         System.out.println(result);
     }
 
@@ -35,6 +36,12 @@ public class code2 {
                 if(j>=nums[i-1])
                     dp[i][j]+=dp[i-1][j-nums[i-1]];
             }
+        }
+        for (int i = 1; i <= n; i++) {
+            for (int j = 0; j <= neg; j++) {
+                System.out.print(dp[i][j]+",");
+            }
+            System.out.println();
         }
         return dp[n][neg];
     }

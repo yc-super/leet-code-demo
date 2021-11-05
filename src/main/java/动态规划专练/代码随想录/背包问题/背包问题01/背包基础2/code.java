@@ -1,4 +1,4 @@
-package 动态规划专练.代码随想录.背包问题.背包02;
+package 动态规划专练.代码随想录.背包问题.背包问题01.背包基础2;
 
 public class code {
     public static void main(String[] args) {

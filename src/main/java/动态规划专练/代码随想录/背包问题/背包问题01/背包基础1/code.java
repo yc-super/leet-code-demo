@@ -1,4 +1,4 @@
-package 动态规划专练.代码随想录.背包问题.背包01;
+package 动态规划专练.代码随想录.背包问题.背包问题01.背包基础1;
 /*
 * 1. 确定dp数组及下标的含义
 *   dp[i][j]:表示物品0-i放入容量为j的背包，存放的物品最大价值总和
@@ -46,6 +46,13 @@ public class code {
                     dp[i][j] = Math.max(dp[i - 1][j], dp[i - 1][j - weight[i]] + value[i]);
                 }
             }
+        }
+        //打印dp数组
+        for (int i = 0; i < weight.length; i++){
+            for (int j = 0; j <= bagWeight; j++){
+                System.out.print(dp[i][j] + " ");
+            }
+            System.out.print("\n");
         }
         return dp[weight.length-1][bagWeight];
 

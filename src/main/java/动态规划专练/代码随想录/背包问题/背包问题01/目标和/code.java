@@ -1,6 +1,4 @@
-package 动态规划专练.代码随想录.背包问题.目标和;
-
-import com.sun.org.apache.bcel.internal.classfile.Code;
+package 动态规划专练.代码随想录.背包问题.背包问题01.目标和;
 
 /*
 * 把数组分成两部分，一部分的是a1,一部分的和是a2
