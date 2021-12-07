@@ -1,14 +1,48 @@
 package 测试;
 
-public class ceshi {
-    public static void main(String[] args) {
-        //第二次提交
-        String type="menu";
-        String[] split = type.split(",");
-        for (int i = 0; i < split.length; i++) {
-            System.out.println(split[i]);
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
 
-        }
+public class ceshi {
+    public static void main(String[] args) throws UnsupportedEncodingException {
+        Integer a=127,b=127;
+//        System.out.println(a==b);
+//        Integer a=128,b=128;
+//        System.out.println(a==b);
+        String url="%7B%22method%22%3A1%2C%22params%22%3A%7B%22userId%22%3A%2210.214.92.209%22%2C%22fileId%22%3A%22604789777%22%2C%22filePath%22%3A%22%2FFineReport%2010.0%E8%AE%BE%E8%AE%A1%E5%99%A8%E6%96%B0%E5%8A%9F%E8%83%BD%E6%91%B8%E5%BA%95%EF%BC%88%E5%9F%BA%E4%BA%8E8.0%E7%89%88%E6%9C%AC%EF%BC%89docx.docx%22%2C%22userRight%22%3A0%2C%22mobileFlag%22%3Afalse%2C%22saveFlag%22%3Atrue%2C%22fallbackUrl%22%3A%22http%3A%2F%2F10.215.142.54%3A9090%2F%22%2C%22extraData%22%3A%7B%22token%22%3A%22bbb%22%7D%7D%2C%22indexFlag%22%3Atrue%7D";
+
+        String deurl = URLDecoder.decode(url,"UTF-8");
+        System.out.println(deurl);
+
+        String url2="%7B%22method%22%3A10003%2C%22params%22%3A%7B%22dirPath%22%3Anull%7D%7D";
+        String deurl2 = URLDecoder.decode(url2,"UTF-8");
+        System.out.println(deurl2);
+
+        String url3="%7B%22method%22%3A10020%7D";
+        String deurl3 = URLDecoder.decode(url3,"UTF-8");
+        System.out.println(deurl3);
+
+
+        System.out.println("采用UTF-8字符集进行解码1111111111:");
+        String keyWord = URLDecoder.decode("av=3.2b202106251611&wv=3.2_build190&fid=1471992819&core=gnGt9KfdL/uvGVWIs8R0GCM3SBk6zLs1wLuLjlERkTY=&sig=3faad43a880f47eb82766a08d634411d", "UTF-8");
+        System.out.println(keyWord);
+        System.out.println("采用UTF-8字符集进行解码:");
+        String keyWord2 = URLDecoder.decode("fileId=1&jsonParams=%7B%22method%22%3A74%2C%22params%22%3A%7B%22fileId%22%3A%221%22%2C%22operId%22%3A%2210.214.92.209%243%22%7D%7D&_=1637825876635", "UTF-8");
+        System.out.println(keyWord2);
+
+        System.out.println("\n 采用GBK字符集进行解码:");
+        System.out.println(URLDecoder.decode("%E5%A4%A9%E6%B4%A5%E5%A4%A7%E5%AD%A6+Rico", "GBK"));
+
+        System.out.println("\n 采用utf-8字符集:");
+        String urlStr = URLEncoder.encode("天津大学", "utf-8");
+        System.out.println(urlStr);
+        System.out.println("\n 采用GBK字符集:");
+        String urlStr2 = URLEncoder.encode("天津大学", "GBK");
+        System.out.println(urlStr2);
     }
 
     public static void mergeSort(int[] arr) {
