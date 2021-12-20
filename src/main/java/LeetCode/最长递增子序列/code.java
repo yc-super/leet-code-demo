@@ -25,7 +25,7 @@ public class code {
         return max;
     }
 
-    //0,1,0,3,2,311
+    //0,1,0,3,2,3
     private void backTrack(int start, int[] nums, List<Integer> list) {
         max=Math.max(max,list.size());
         for (int i = start; i < nums.length; i++) {
