@@ -1,4 +1,4 @@
-package 数组.螺旋矩阵II;
+package 数组专练.螺旋矩阵II;
 
 public class code {
     public static void main(String[] args) {

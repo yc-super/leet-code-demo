@@ -1,4 +1,4 @@
-package 数组.长度最小的子数组;
+package 数组专练.长度最小的子数组;
 
 public class code {
     public static void main(String[] args) {

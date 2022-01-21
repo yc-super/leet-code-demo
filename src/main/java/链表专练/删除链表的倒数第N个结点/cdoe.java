@@ -1,7 +1,7 @@
-package 链表.删除链表的倒数第N个结点;
+package 链表专练.删除链表的倒数第N个结点;
 
 
-import 链表.ListNode;
+import 链表专练.ListNode;
 
 public class cdoe {
     public static void main(String[] args) {

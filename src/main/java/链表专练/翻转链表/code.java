@@ -1,4 +1,4 @@
-package 链表.翻转链表;
+package 链表专练.翻转链表;
 
 public class code {
     public static void main(String[] args) {

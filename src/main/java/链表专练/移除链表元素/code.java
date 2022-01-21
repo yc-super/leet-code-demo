@@ -1,6 +1,6 @@
-package 链表.移除链表元素;
+package 链表专练.移除链表元素;
 
-import 链表.ListNode;
+import 链表专练.ListNode;
 
 
 public class code {

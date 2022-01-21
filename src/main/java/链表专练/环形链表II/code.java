@@ -1,10 +1,8 @@
-package 链表.环形链表II;
+package 链表专练.环形链表II;
 
-import 链表.ListNode;
+import 链表专练.ListNode;
 
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 public class code {

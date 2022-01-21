@@ -1,4 +1,4 @@
-package 数组.移除元素;
+package 数组专练.移除元素;
 
 public class code {
     public static void main(String[] args) {

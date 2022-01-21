@@ -1,4 +1,4 @@
-package 链表;
+package 链表专练;
 
 public class ListNode {
     public int val;

@@ -1,4 +1,4 @@
-package 数组.有序数组的平方;
+package 数组专练.有序数组的平方;
 
 public class code {
     public static void main(String[] args) {

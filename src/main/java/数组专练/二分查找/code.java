@@ -1,4 +1,4 @@
-package 数组.二分查找;
+package 数组专练.二分查找;
 
 import java.util.Arrays;
 

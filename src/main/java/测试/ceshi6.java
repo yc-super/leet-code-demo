@@ -1,5 +1,6 @@
 package 测试;
 
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.*;
@@ -7,19 +8,21 @@ import java.util.concurrent.ConcurrentHashMap;
 @Slf4j
 public class ceshi6 {
     public static void main(String[] args) {
-        /*List<String> list=new ArrayList();
-        list.add("1");
-        Object[] objects = list.toArray();//直接用list.toArray()，只能得到Object类型的数组
-        String[] array = list.toArray(new String[0]);//将list转化为Stirng数组*/
-
-        Random random = new Random();
-        for (int i = 0; i < 1; i++) {
-            try {
-                System.out.println(2/0);
-                int a=3/0;
-            }catch (Exception e){
-                log.error("异常信息：{}{}",e);
+        List<Integer> list=new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        Iterator<Integer> it = list.iterator();
+        while (it.hasNext()){
+            Integer next = it.next();
+            if(next==2) {
+                it.remove();
             }
+            System.out.println(next);
+        }
+        for(Integer i:list){
+            System.out.print(i+",");
         }
     }
 }

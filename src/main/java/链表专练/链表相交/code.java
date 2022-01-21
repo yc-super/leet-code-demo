@@ -1,6 +1,6 @@
-package 链表.链表相交;
+package 链表专练.链表相交;
 
-import 链表.ListNode;
+import 链表专练.ListNode;
 
 public class code {
     public static void main(String[] args) {
