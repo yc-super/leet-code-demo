@@ -1,28 +1,49 @@
 package 测试;
 
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
+
 @Slf4j
 public class ceshi6 {
-    public static void main(String[] args) {
-        List<Integer> list=new ArrayList<>();
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        list.add(4);
-        Iterator<Integer> it = list.iterator();
-        while (it.hasNext()){
-            Integer next = it.next();
-            if(next==2) {
-                it.remove();
-            }
-            System.out.println(next);
+    public static void main(String[] args) throws Exception {
+           if("ss".equals(null)){
+               System.out.println(123);
+           }else{
+               System.out.println(45);
+           }
+
+
+    }
+    public static Map<String,Object> Obj2Map(Object obj) throws Exception{
+        Map<String,Object> map=new HashMap<String, Object>();
+        Field[] fields = obj.getClass().getDeclaredFields();
+        for(Field field:fields){
+            field.setAccessible(true);
+            map.put(field.getName(), field.get(obj));
         }
-        for(Integer i:list){
-            System.out.print(i+",");
+        return map;
+    }
+    static class Student{
+        private String name;
+        private Integer age;
+        public Student(String name,Integer age){
+            this.name=name;
+            this.age=age;
+        }
+        public String getName(){
+            return name;
+        }
+        public Integer getAge(){
+            return age;
         }
     }
+
+    private static void getff(Map<String, String> map) {
+        map.remove("1");
+    }
 }
+
