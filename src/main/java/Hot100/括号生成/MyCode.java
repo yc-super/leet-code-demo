@@ -1,6 +1,7 @@
 package Hot100.括号生成;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MyCode {
@@ -23,18 +24,69 @@ public class MyCode {
         //例如：输入：s = "abc"
         //输出：["abc","acb","bac","bca","cab","cba"]
         
-        String s="abc";
+       /* String s="acc";
         char[] chars = s.toCharArray();
-        backTrack(0,chars,new StringBuilder());
+        Arrays.sort(chars);
+        boolean[] vis=new boolean[chars.length];
+        //回溯法
+        backTrack(chars,new StringBuilder(),vis);
+        System.out.println(list);*/
+
+
+
+        //利用上面的思路解决这个问题：
+       /* String s="((()))";
+        char[] chars = s.toCharArray();
+        Arrays.sort(chars);*/
+
+        int n=1;
+        char[] chars=new char[n*2];
+        for (int i = 0; i < n; i++) {
+            chars[i]='(';
+        }
+        for (int i = n; i < n*2; i++) {
+            chars[i]=')';
+        }
+
+        boolean[] vis=new boolean[chars.length];
+        //回溯法
+        backTrack(chars,new StringBuilder(),vis,0,0);
+        System.out.println(list);
     }
 
     private static List<String> list=new ArrayList<>();
-    private static void backTrack(int start, char[] chars, StringBuilder sb) {
-        if(start==chars.length){
+    private static void backTrack( char[] chars, StringBuilder sb,boolean[] vis,int num1,int num2) {
+        if(sb.length()==chars.length){
             list.add(sb.toString());
+            return;
         }
         for (int i = 0; i < chars.length; i++) {
-            
+            if(vis[i]||(i>0&&!vis[i-1]&&chars[i]==chars[i-1])){
+                continue;
+            }
+            if(chars[i]=='('){
+                num1++;
+            }else {
+                num2++;
+            }
+            if(num1<num2){
+                if(chars[i]=='('){
+                    num1--;
+                }else {
+                    num2--;
+                }
+                continue;
+            }
+            vis[i]=true;
+            sb.append(chars[i]);
+            backTrack(chars,sb,vis,num1,num2);
+            if(chars[i]=='('){
+                num1--;
+            }else {
+                num2--;
+            }
+            vis[i]=false;
+            sb.deleteCharAt(sb.length()-1);
         }
     }
 }

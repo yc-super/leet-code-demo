@@ -1,16 +1,15 @@
 package 测试;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 public class ceshi2 {
     public static void main(String[] args) {
-        List list=new ArrayList();
-        list.add(100);
-        list.add(200);
-        list.add(300);
-        System.out.println(list);
-        list.remove((Integer)100);
-        System.out.println(list);
+       String s="123";
+        Double aDouble = Double.valueOf(s);
+        double d=Double.valueOf(s);
+        BigDecimal b=BigDecimal.valueOf(d).setScale(2,BigDecimal.ROUND_HALF_UP);
+        System.out.println();
     }
     private Student fixStudent(Student student){
         student.setName("小刘");
