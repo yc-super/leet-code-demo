@@ -5,14 +5,12 @@ import java.util.*;
 
 public class ceshi2 {
     public static void main(String[] args) {
-       String s="123";
-        Double aDouble = Double.valueOf(s);
-        double d=Double.valueOf(s);
-        BigDecimal b=BigDecimal.valueOf(d).setScale(2,BigDecimal.ROUND_HALF_UP);
-        System.out.println();
-    }
-    private Student fixStudent(Student student){
-        student.setName("小刘");
-        return student;
+        Integer[] in={1,2,3};
+        final List<Integer> list = Arrays.asList(in);
+        System.out.println(list);
+        in[2]=10;
+        System.out.println(list);
+//        list.add(222);//asList生成的list不能使用add和remove方法，会报错
+//        list.remove(2);
     }
 }

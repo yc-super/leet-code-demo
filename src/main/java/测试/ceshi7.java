@@ -1,35 +1,78 @@
 package 测试;
 
-import com.sun.deploy.util.StringUtils;
-
-import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicStampedReference;
 
 public class ceshi7 {
-    private static Random random=new Random();
-    public static void main(String[] args) {
-        /*String s="123";
-        BigDecimal bigDecimal = BigDecimal.valueOf(Double.valueOf(s)).setScale(2,BigDecimal.ROUND_HALF_UP);
-        System.out.println(bigDecimal);*/
-       /* System.out.println("ss"+1+2);
-        System.out.println(1+2+"ss");
-        System.out.println("ss"+(1+2));*/
-        /*String s="1;2;3;";
-        String[] split = s.split(";");
-        System.out.println(split.length);*/
-//        System.out.println(random.nextInt(10));
-       /* Map<String,String> map=new HashMap<>();
-        map.put("1","11");
-        map.put("2","22");
-        Map<String,String> map2=new HashMap<>(map);
-        for(Map.Entry<String,String> entry:map2.entrySet()){
-            System.out.println(entry.getKey()+":"+entry.getValue());
-        }*/
-        String s="133455";
-        char[] chars = s.toCharArray();
-        System.out.println("133455".equals(chars));
-    }
 
+    private static AtomicInteger atomicInt = new AtomicInteger(100);
+
+    private static AtomicStampedReference<Integer> atomicStampedRef = new AtomicStampedReference<Integer>(100, 0);
+
+    public static void main(String[] args) throws InterruptedException {
+
+        Thread intT1 = new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                atomicInt.compareAndSet(100, 101);
+                atomicInt.compareAndSet(101, 100);
+            }
+
+        });
+
+        Thread intT2 = new Thread(new Runnable() {
+
+            @Override
+
+            public void run() {
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch (InterruptedException e) {
+
+                }
+                boolean c3 = atomicInt.compareAndSet(100, 101);
+                System.out.println(c3); // true
+            }
+        });
+
+//        intT1.start();
+//        intT2.start();
+//        intT1.join();
+//        intT2.join();
+        Thread refT1 = new Thread(new Runnable() {
+
+            @Override
+            public void run(){
+//                try {
+//                    TimeUnit.SECONDS.sleep(1);
+//                } catch (InterruptedException e) {
+//                }
+                boolean c1=atomicStampedRef.compareAndSet(100, 101, atomicStampedRef.getStamp(), atomicStampedRef.getStamp() + 1);
+                boolean c2=atomicStampedRef.compareAndSet(101, 100, atomicStampedRef.getStamp(), atomicStampedRef.getStamp() + 1);
+                System.out.println();
+            }
+
+        });
+
+        Thread refT2 = new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                try {
+                    TimeUnit.SECONDS.sleep(2);
+                } catch (InterruptedException e) {
+                }
+                int stamp = atomicStampedRef.getStamp();
+
+
+                boolean c3 = atomicStampedRef.compareAndSet(100, 101, stamp, stamp + 1);
+                System.out.println(c3); // false
+            }
+        });
+
+        refT1.start();
+        refT2.start();
+    }
 }
