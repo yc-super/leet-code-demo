@@ -1,5 +1,7 @@
 package LeetCode.叶子相似的树;
 
+import 树.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 

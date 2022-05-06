@@ -1,19 +1,16 @@
 package 测试;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 public class ceshi2 {
     public static void main(String[] args) {
-        List list=new ArrayList();
-        list.add(100);
-        list.add(200);
-        list.add(300);
+        Integer[] in={1,2,3};
+        final List<Integer> list = Arrays.asList(in);
         System.out.println(list);
-        list.remove((Integer)100);
+        in[2]=10;
         System.out.println(list);
-    }
-    private Student fixStudent(Student student){
-        student.setName("小刘");
-        return student;
+//        list.add(222);//asList生成的list不能使用add和remove方法，会报错
+//        list.remove(2);
     }
 }

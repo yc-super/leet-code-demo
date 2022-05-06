@@ -6,7 +6,7 @@ import java.util.List;
 public class MyCode {
     public static void main(String[] args) {
 //        int[] nums = {1,2,3};//[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
-        int[] nums = {1};
+        int[] nums = {1,2,3,4};
         List<List<Integer>> result = new MyCode().permute(nums);
         for (List<Integer> list :
                 result) {
