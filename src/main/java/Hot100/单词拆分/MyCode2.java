@@ -78,6 +78,8 @@ public class MyCode2 {
         return dp[s.length()];
     }
 
+    //剪枝
+    //动态规划剪枝，如果内循环中j到i的长度大于wordDirect中最长的，直接break
     public boolean wordBreak2(String s, List<String> wordDict) {
         Set<String> set=new HashSet<>();
         int maxLen=0;
