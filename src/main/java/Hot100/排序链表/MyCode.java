@@ -11,6 +11,7 @@ public class MyCode {
         ListNode listNode = new MyCode().sortList(null);
         System.out.println();
     }
+    //冒泡排序，超时了
     public ListNode sortList(ListNode head) {
         if(head==null||head.next==null)
             return head;

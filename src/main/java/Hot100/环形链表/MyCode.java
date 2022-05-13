@@ -35,23 +35,17 @@ public class MyCode {
         return false;
     }
 
-    //快慢指针,快指针一次走两步，慢指针一次走一步
+    //思路：快慢指针
     public boolean hasCycle2(ListNode head) {
         if(head==null||head.next==null)
             return false;
-        ListNode slow=head.next;
         ListNode fast=head.next.next;
-        while(fast!=null){
-            if(slow==fast) {
+        ListNode slow=head.next;
+        while(fast!=null&&fast.next!=null){
+            if(fast==slow)
                 return true;
-            } else{
-                if(fast.next==null){
-                    return false;
-                } else {
-                    slow=slow.next;
-                    fast=fast.next.next;
-                }
-            }
+            fast=fast.next.next;
+            slow=slow.next;
         }
         return false;
     }
