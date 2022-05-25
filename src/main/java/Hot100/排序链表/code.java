@@ -2,10 +2,12 @@ package Hot100.排序链表;
 
 import 链表专练.ListNode;
 
+//官方答案，快慢指针+归并排序。有一说一，像我最多只会想到归并排序，然后去实现的时候，由于懂的不多，做的题不够多，联想不到快慢指针去帮助实现代码，还是要多做题，多思考
 public class code {
     public static void main(String[] args) {
-        ListNode head=new ListNode(4,new ListNode(2,new ListNode(1,new ListNode(3))));
+        ListNode head=new ListNode(1,new ListNode(2,new ListNode(3,new ListNode(4))));
         ListNode listNode = new code().sortList(head);
+        System.out.println();
     }
     public ListNode sortList(ListNode head) {
         return sortList(head, null);
