@@ -4,6 +4,12 @@ package Hot100.乘积最大子数组;
 public class MyCode {
     public static void main(String[] args) {
 //        int[] nums = {2,3,-1,4,2,-2,-1,193};
+        /*
+        * 2  3  -1  4  2  -2  -1  193
+        * 2  3  -6  -24 -48
+        * 2  6  -1  4  8
+        * 2  6
+        * */
 //        int[] nums = {-2,0,-1};
         int[] nums = {-2,0,1,2,0,9,-1,3};
         int i = maxProduct(nums);
