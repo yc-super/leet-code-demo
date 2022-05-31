@@ -21,10 +21,10 @@ peek:获取队首的元素，但不从队列移除
 public class code1Copy {
     public static void main(String[] args) {
         char[][] grid = {
-                {'1', '1', '1', '1', '0'},
+                {'1', '1', '1', '1', '1'},
                 {'1', '1', '0', '1', '0'},
-                {'1', '1', '0', '0', '0'},
-                {'0', '0', '0', '0', '0'}
+                {'1', '1', '0', '0', '1'},
+                {'1', '0', '0', '1', '1'}
         };
 //
 //        char[][] grid = {
@@ -33,7 +33,7 @@ public class code1Copy {
 //        };
 //        char[][] grid = {
 //                {'1','1','1'},
-//                {'0','1','0'},
+//                {'0','0','0'},
 //                {'1','1','1'}
 //        };
 //
@@ -55,22 +55,26 @@ public class code1Copy {
                 if(grid[i][j]=='1'){
                     num++;
                     queue.add(i*n+j);
+                    grid[i][j]='0';
                     while(!queue.isEmpty()){
                         Integer temp = queue.remove();
                         int ii=temp/n;
                         int jj=temp%n;
-                        grid[ii][jj]='0';
                         if(ii-1>=0&&grid[ii-1][jj]=='1'){
                             queue.add((ii-1)*n+jj);
+                            grid[ii-1][jj]='0';
                         }
                         if(jj-1>=0&&grid[ii][jj-1]=='1'){
                             queue.add(ii*n+(jj-1));
+                            grid[ii][jj-1]='0';
                         }
                         if(ii+1<m&&grid[ii+1][jj]=='1'){
                             queue.add((ii+1)*n+jj);
+                            grid[ii+1][jj]='0';
                         }
                         if(jj+1<n&&grid[ii][jj+1]=='1'){
                             queue.add(ii*n+(jj+1));
+                            grid[ii][jj+1]='0';
                         }
                     }
                 }
