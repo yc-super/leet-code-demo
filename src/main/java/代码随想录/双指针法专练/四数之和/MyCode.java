@@ -26,7 +26,8 @@ public class MyCode {
         int len=nums.length;
         Arrays.sort(nums);
 
-        int left,right,sum;
+        int left,right;
+        long sum=0;
 
         for (int i = 0; i < len-3; i++) {
             if(i>0&&nums[i]==nums[i-1])
@@ -37,7 +38,11 @@ public class MyCode {
                 left=j+1;
                 right=len-1;
                 while(left<right) {
-                    sum=nums[i]+nums[j]+nums[left]+nums[right];
+                    sum=0;
+                    sum+=nums[i];
+                    sum+=nums[j];
+                    sum+=nums[left];
+                    sum+=nums[right];
                     if (sum < target) {
                         left++;
                     }else if(sum>target){
@@ -47,7 +52,7 @@ public class MyCode {
                         while(left<right&&nums[left+1]==nums[left]){
                             left++;
                         }
-                        while(left<right&&nums[right--]==nums[right]){
+                        while(left<right&&nums[right-1]==nums[right]){
                             right--;
                         }
                         left++;
