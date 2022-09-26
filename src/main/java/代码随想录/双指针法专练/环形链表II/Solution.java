@@ -35,4 +35,29 @@ public class Solution {
         }
         return null;
     }
+    public ListNode detectCycle2(ListNode head) {
+        if(head==null||head.next==null)
+            return null;
+        ListNode fast=head;
+        ListNode slow=head;
+
+        while(fast!=null){
+            fast=fast.next;
+            slow=slow.next;
+            if(fast!=null){
+                fast=fast.next;
+                if(fast==slow){
+                    while(head!=fast){
+                        head=head.next;
+                        fast=fast.next;
+                    }
+                    return head;
+                }
+            }else{
+                return null;
+            }
+        }
+
+        return null;
+    }
 }

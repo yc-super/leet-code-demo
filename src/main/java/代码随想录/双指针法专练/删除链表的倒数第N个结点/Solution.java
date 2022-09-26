@@ -1,6 +1,10 @@
 package 代码随想录.双指针法专练.删除链表的倒数第N个结点;
 
 import 代码随想录.链表专练.ListNode;
+
+import java.util.HashSet;
+import java.util.Set;
+
 //19. 删除链表的倒数第 N 个结点  中等
 public class Solution {
     /*
