@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 
+//迭代遍历
 public class Solution2 {
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> list=new ArrayList<>();

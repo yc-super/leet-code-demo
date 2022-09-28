@@ -1,4 +1,4 @@
-package 代码随想录.双指针法专练.颠倒字符串中的单词;
+package 代码随想录.双指针法专练.反转字符串中的单词;
 //力扣 151. 颠倒字符串中的单词
 /*
 * 示例：
@@ -29,5 +29,30 @@ public class Solution {
             sb.deleteCharAt(sb.length()-1);
         return sb.toString();
 
+    }
+
+    public static String reverseWords2(String s) {
+        //1,将s从 " the sky     is blue  "处理成 "the sky     is blue"的规范格式
+        StringBuilder sb=new StringBuilder();
+        int left=0,right=s.length()-1;
+        while (left<s.length()&& s.charAt(left)==' '){
+            left++;
+        }
+        while (right>=0&& s.charAt(right)==' '){
+            right--;
+        }
+        int temp_index;
+        while(left<=right){
+            temp_index=right;
+            while(left<=right&&s.charAt(right)!=' '){
+                right--;
+            }
+            sb.append(s,right,temp_index);
+            while(left<=right&&s.charAt(right)==' '){
+                right--;
+            }
+            sb.append(" ");
+        }
+        return "";
     }
 }

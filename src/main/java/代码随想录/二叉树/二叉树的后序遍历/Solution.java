@@ -5,6 +5,7 @@ import 代码随想录.二叉树.TreeNode;
 import java.util.ArrayList;
 import java.util.List;
 
+//递归遍历
 public class Solution {
     public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> list=new ArrayList<>();

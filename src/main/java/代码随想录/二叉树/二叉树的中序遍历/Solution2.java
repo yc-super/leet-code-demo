@@ -7,14 +7,23 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 
+//迭代遍历
 public class Solution2 {
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> list=new ArrayList<>();
         if(root==null)
             return list;
         Deque<TreeNode> deque=new ArrayDeque<>();
-        while(!deque.isEmpty()){
-
+        TreeNode cur=root;
+        while(!deque.isEmpty()||cur!=null){
+            if(cur!=null){
+                deque.push(cur);
+                cur=cur.left;
+            }else{
+                cur = deque.pop();
+                list.add(cur.val);
+                cur=cur.right;
+            }
         }
         return list;
     }
