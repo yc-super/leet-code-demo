@@ -23,6 +23,20 @@ public class Solution {
         preorderTraversal(root.right,list);
     }
 
+
+    public List<Integer> preorderTraversal2(TreeNode root) {
+        List<Integer> list=new ArrayList<>();
+        preorderTraversal2(root,list);
+        return list;
+    }
+    private void preorderTraversal2(TreeNode root, List<Integer> list) {
+        if(root==null)
+            return;
+        list.add(root.val);
+        preorderTraversal2(root.left,list);
+        preorderTraversal2(root.right,list);
+    }
+
     public static void main(String[] args) {
 //        Integer[] root = {1,null,2,3};
         TreeNode root=new TreeNode(1);

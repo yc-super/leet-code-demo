@@ -7,8 +7,8 @@ package 代码随想录.双指针法专练.反转字符串中的单词;
 * */
 public class Solution {
     public static void main(String[] args) {
-        String s = "    the";
-        System.out.println(reverseWords(s));
+        String s = "the";
+        System.out.println(reverseWords2(s));
     }
     public static String reverseWords(String s) {
         StringBuilder sb=new StringBuilder();
@@ -42,17 +42,43 @@ public class Solution {
             right--;
         }
         int temp_index;
-        while(left<=right){
-            temp_index=right;
-            while(left<=right&&s.charAt(right)!=' '){
+        while (left <= right) {
+            temp_index = right;
+            while (left <= right && s.charAt(right) != ' ') {
                 right--;
             }
-            sb.append(s,right,temp_index);
-            while(left<=right&&s.charAt(right)==' '){
+            sb.append(s, right+1, temp_index+1);
+            while (left <= right && s.charAt(right) == ' ') {
                 right--;
             }
             sb.append(" ");
         }
+        sb.deleteCharAt(sb.length()-1);
+        return sb.toString();
+    }
+
+    public static String reverseWords3(String s) {
+//        the sky is   blue
+        if (s == null || s.length() == 0) {
+            return s;
+        }
+        int left=0,right=s.length()-1;
+        while(left<s.length()&&s.charAt(left)==' ')
+            left++;
+        while(right>=0&&s.charAt(right)==' '){
+            right--;
+        }
+        StringBuilder sb=new StringBuilder();
+        int temp_index;
+        while(right>=left){
+            temp_index=right;
+            while(s.charAt(right)!=' '){
+                right--;
+            }
+            sb.append(s,left,right);
+        }
+
         return "";
     }
+
 }

@@ -27,6 +27,23 @@ public class Solution2 {
         return list;
     }
 
+    public List<Integer> postorderTraversal2(TreeNode root) {
+        List<Integer> list=new ArrayList<>();
+        if(root==null)
+            return list;
+        Deque<TreeNode> deque=new LinkedList<>();
+        deque.push(root);
+        while(!deque.isEmpty()){
+            TreeNode pop = deque.pop();
+            list.add(pop.val);
+            if(pop.left!=null)
+                deque.push(pop.left);
+            if(pop.right!=null)
+                deque.push(pop.right);
+        }
+        Collections.reverse(list);
+        return list;
+    }
     public static void main(String[] args) {
 //        Integer[] root = {1,null,2,3};
         TreeNode root = new TreeNode(1);

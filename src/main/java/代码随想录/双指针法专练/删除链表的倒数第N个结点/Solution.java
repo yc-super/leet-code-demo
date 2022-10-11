@@ -33,4 +33,21 @@ public class Solution {
         left.next=left.next.next;
         return temp.next;
     }
+
+    public ListNode removeNthFromEnd2(ListNode head, int n) {
+        //思路：快慢指针
+        ListNode temp=new ListNode();//辅助指针，便于处理移除头结点的情况
+        temp.next=head;
+        ListNode slow=temp;
+        ListNode fast=head;
+        for (int i = 0; i < n-1; i++) {
+            fast=fast.next;
+        }
+        while(fast.next!=null){
+            fast=fast.next;
+            slow=slow.next;
+        }
+         slow.next=slow.next.next;
+        return temp.next;
+    }
 }

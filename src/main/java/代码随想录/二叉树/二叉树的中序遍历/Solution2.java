@@ -2,10 +2,7 @@ package 代码随想录.二叉树.二叉树的中序遍历;
 
 import 代码随想录.二叉树.TreeNode;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.List;
+import java.util.*;
 
 //迭代遍历
 public class Solution2 {
@@ -14,6 +11,25 @@ public class Solution2 {
         if(root==null)
             return list;
         Deque<TreeNode> deque=new ArrayDeque<>();
+        TreeNode cur=root;
+        while(!deque.isEmpty()||cur!=null){
+            if(cur!=null){
+                deque.push(cur);
+                cur=cur.left;
+            }else{
+                cur = deque.pop();
+                list.add(cur.val);
+                cur=cur.right;
+            }
+        }
+        return list;
+    }
+
+    public List<Integer> inorderTraversal2(TreeNode root) {
+        List<Integer> list=new ArrayList<>();
+        if(root==null)
+            return list;
+        Deque<TreeNode> deque=new LinkedList<>();
         TreeNode cur=root;
         while(!deque.isEmpty()||cur!=null){
             if(cur!=null){
