@@ -5,14 +5,79 @@ import 代码随想录.二叉树.TreeNode;
 import 代码随想录.链表专练.ListNode;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class Solution {
     public static void main(String[] args) {
-//        TreeNode root = new TreeNode(3, new TreeNode(9), new TreeNode(20, new TreeNode(15), new TreeNode(7)));
-        TreeNode root = new TreeNode(1);
-        List<List<Integer>> lists = levelOrder(root);
+        TreeNode root = new TreeNode(3, new TreeNode(9), new TreeNode(20, new TreeNode(15), new TreeNode(7)));
+//        TreeNode root = new TreeNode(1);
+        List<List<Integer>> lists = new Solution().levelOrder1(root);
         System.out.println(lists);
+    }
+
+    List<List<Integer>> result=new ArrayList<>();
+
+    public List<List<Integer>> levelOrder1(TreeNode root) {
+        //DFS 递归遍历
+//        checkFun0(root,0);
+        //BFS 迭代方式，借助队列
+        checkFun1(root);
+
+        if(result.size()>0){
+            int left=0;
+            int right=result.size()-1;
+            List<Integer> temp;
+            while(right>left){
+                temp=result.get(left);
+                result.set(left,result.get(right));
+                result.set(right,temp);
+
+                left++;
+                right--;
+            }
+        }
+
+        return result;
+    }
+
+    private void checkFun0(TreeNode root, int deep) {
+        if(root==null)
+            return;
+        deep++;
+        if(result.size()<deep){
+            List<Integer> list=new ArrayList<>();
+            result.add(list);
+        }
+        result.get(deep-1).add(root.val);
+
+        checkFun0(root.left,deep);
+        checkFun0(root.right,deep);
+    }
+
+    public void checkFun1(TreeNode root) {
+        if(root==null)
+            return;
+        Queue<TreeNode> queue=new LinkedList<>();
+        queue.offer(root);
+        int len;
+        while(!queue.isEmpty()){
+            len=queue.size();
+            List<Integer> list=new ArrayList<>();
+            while(len>0){
+                TreeNode node = queue.poll();
+                list.add(node.val);
+
+                if(node.left!=null)
+                    queue.offer(node.left);
+                if(node.right!=null)
+                    queue.offer(node.right);
+
+                len--;
+            }
+            result.add(list);
+        }
     }
 
     //思路：维护一个list,用于记录每层的节点，等记录完它们的val后，记录它们的左右节点，并清除之前的节点
