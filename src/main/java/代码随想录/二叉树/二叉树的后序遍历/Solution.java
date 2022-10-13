@@ -24,6 +24,12 @@ public class Solution {
     }
 
     public static void main(String[] args) {
+        /*
+        *           1
+        *       2           5
+        *   3      4      6   7
+        *                8  9
+        * */
 //        Integer[] root = {1,null,2,3};
         TreeNode root=new TreeNode(1);
         TreeNode node1=new TreeNode(2);
@@ -32,12 +38,17 @@ public class Solution {
         TreeNode node4=new TreeNode(5);
         TreeNode node5=new TreeNode(6);
         TreeNode node6=new TreeNode(7);
+        TreeNode node7=new TreeNode(8);
+        TreeNode node8=new TreeNode(9);
         root.left=node1;
         node1.left=node2;
         node1.right=node3;
         root.right=node4;
         node4.left=node5;
         node4.right=node6;
+
+        node5.left=node7;
+        node5.right=node8;
 
         List<Integer> list = new Solution().postorderTraversal(root);
         System.out.println(list);

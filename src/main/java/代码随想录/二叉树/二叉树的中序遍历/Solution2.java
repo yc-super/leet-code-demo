@@ -43,6 +43,26 @@ public class Solution2 {
         }
         return list;
     }
+
+    //迭代遍历复习
+    public List<Integer> inorderTraversal3(TreeNode root) {
+        List<Integer> result=new ArrayList<>();
+        if(root==null)
+            return result;
+        Deque<TreeNode> deque =new LinkedList<>();
+        TreeNode cur=root;
+        while(cur!=null||!deque.isEmpty()){
+            if(cur!=null){
+                deque.push(cur);
+                cur=cur.left;
+            }else{
+                cur = deque.pop();
+                result.add(cur.val);
+                cur=cur.right;
+            }
+        }
+        return result;
+    }
     public static void main(String[] args) {
 //        Integer[] root = {1,null,2,3};
         TreeNode root=new TreeNode(1);

@@ -44,6 +44,25 @@ public class Solution2 {
         Collections.reverse(list);
         return list;
     }
+
+    //迭代遍历复习
+    public List<Integer> postorderTraversal3(TreeNode root) {
+        List<Integer> result=new ArrayList<>();
+        if(root==null)
+            return result;
+        Deque<TreeNode> deque =new LinkedList<>();
+        deque.push(root);
+        while(!deque.isEmpty()){
+            TreeNode node = deque.pop();
+            result.add(node.val);
+            if(node.left!=null)
+                deque.push(node.left);
+            if(node.right!=null)
+                deque.push(node.right);
+        }
+        Collections.reverse(result);
+        return result;
+    }
     public static void main(String[] args) {
 //        Integer[] root = {1,null,2,3};
         TreeNode root = new TreeNode(1);

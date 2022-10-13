@@ -11,9 +11,9 @@ import java.util.Queue;
 
 public class Solution {
     public static void main(String[] args) {
-        TreeNode root = new TreeNode(3, new TreeNode(9), new TreeNode(20, new TreeNode(15), new TreeNode(7)));
+        TreeNode root = new TreeNode(3, new TreeNode(9,new TreeNode(10),new TreeNode(11)), new TreeNode(20, new TreeNode(15), new TreeNode(7)));
 //        TreeNode root = new TreeNode(1);
-        List<List<Integer>> lists = new Solution().levelOrder1(root);
+        List<List<Integer>> lists = new Solution().levelOrder3(root);
         System.out.println(lists);
     }
 
@@ -103,6 +103,59 @@ public class Solution {
             }
             nodeList.clear();
             nodeList.addAll(temp);
+        }
+        return result;
+    }
+
+    //递归遍历复习
+    public List<List<Integer>> levelOrder3(TreeNode root) {
+        List<List<Integer>> result=new ArrayList<>();
+        if(root==null)
+            return result;
+        checkFun3(root,0,result);
+        return result;
+    }
+
+    private void checkFun3(TreeNode root, int deep, List<List<Integer>> result) {
+
+        if(root==null)
+            return;
+
+        deep++;
+
+        if(result.size()<deep){
+            List<Integer> list=new ArrayList<>();
+            result.add(list);
+        }
+        checkFun3(root.left,deep,result);
+        //中序遍历，同时记录层数，即可层数遍历
+        result.get(deep-1).add(root.val);
+        checkFun3(root.right,deep,result);
+    }
+
+    //迭代遍历复习
+    public List<List<Integer>> levelOrder4(TreeNode root) {
+        List<List<Integer>> result=new ArrayList<>();
+        if(root==null)
+            return result;
+        Queue<TreeNode> queue=new LinkedList<>();
+        queue.offer(root);
+        int len;
+        while(!queue.isEmpty()){
+            List<Integer> list=new ArrayList<>();
+            len=queue.size();
+            while(len>0){
+                TreeNode node = queue.poll();
+                list.add(node.val);
+
+                if(node.left!=null)
+                    queue.offer(node.left);
+                if(node.right!=null)
+                    queue.offer(node.right);
+
+                len--;
+            }
+            result.add(list);
         }
         return result;
     }

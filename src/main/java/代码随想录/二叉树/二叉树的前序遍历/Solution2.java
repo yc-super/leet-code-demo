@@ -39,6 +39,24 @@ public class Solution2 {
         }
         return list;
     }
+
+    //迭代遍历复习
+    public List<Integer> preorderTraversal3(TreeNode root) {
+        List<Integer> result=new ArrayList<>();
+        if(root==null)
+            return result;
+        Deque<TreeNode> deque =new LinkedList<>();
+        deque.push(root);
+        while(!deque.isEmpty()){
+            TreeNode node = deque.pop();
+            result.add(node.val);
+            if(node.right!=null)
+                deque.push(node.right);
+            if(node.left!=null)
+                deque.push(node.left);
+        }
+        return result;
+    }
     public static void main(String[] args) {
 //        Integer[] root = {1,null,2,3};
         TreeNode root=new TreeNode(1);
