@@ -1,8 +1,6 @@
-package 代码随想录.二叉树.二叉树的层序遍历;
+package 代码随想录.二叉树.层序遍历.二叉树的层序遍历;
 
-import sun.reflect.generics.tree.Tree;
 import 代码随想录.二叉树.TreeNode;
-import 代码随想录.链表专练.ListNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

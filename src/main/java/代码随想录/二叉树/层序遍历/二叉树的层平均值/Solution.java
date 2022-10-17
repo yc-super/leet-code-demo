@@ -1,4 +1,4 @@
-package 代码随想录.二叉树.二叉树的右视图;
+package 代码随想录.二叉树.层序遍历.二叉树的层平均值;
 
 import 代码随想录.二叉树.TreeNode;
 
@@ -7,41 +7,37 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-//思路 二叉树的程序遍历，只保存每一层的最后一个，可以通过size判断是否是最后一个
 public class Solution {
     public static void main(String[] args) {
         TreeNode root = new TreeNode(3, new TreeNode(9), new TreeNode(20, new TreeNode(15), new TreeNode(7)));
-        List<Integer> lists = new Solution().rightSideView(root);
+        List<Double> lists = new Solution().averageOfLevels(root);
         System.out.println(lists);
     }
-
-    List<Integer> result=new ArrayList<>();
-    public List<Integer> rightSideView(TreeNode root) {
-        //BFS 利用队列迭代遍历
-        checkFun1(root);
-        return result;
-    }
-
-    private void checkFun1(TreeNode root) {
+    public List<Double> averageOfLevels(TreeNode root) {
+        List<Double> result=new ArrayList<>();
         if(root==null)
-            return;
+            return result;
+
         Queue<TreeNode> queue=new LinkedList<>();
         queue.offer(root);
-        int len;
+        int len,temp_len;
+        double sum;
         while(!queue.isEmpty()){
+            sum=0;
             len=queue.size();
+            temp_len=len;
             while(len>0){
                 TreeNode node = queue.poll();
+                sum+=node.val;
                 if(node.left!=null)
                     queue.offer(node.left);
                 if(node.right!=null)
                     queue.offer(node.right);
 
-                if(len==1){
-                    result.add(node.val);
-                }
                 len--;
             }
+            result.add(sum/temp_len);
         }
+        return result;
     }
 }

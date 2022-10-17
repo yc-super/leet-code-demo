@@ -1,4 +1,4 @@
-package 代码随想录.二叉树.N叉树的层序遍历;
+package 代码随想录.二叉树.层序遍历.N叉树的层序遍历;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

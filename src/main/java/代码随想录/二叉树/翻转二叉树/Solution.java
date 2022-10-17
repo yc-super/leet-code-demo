@@ -51,6 +51,7 @@ public class Solution {
         }
         return root;
     }
+
     //深度优先遍历，迭代，后序遍历
     public TreeNode invertTree4(TreeNode root) {
         if (root == null)
@@ -75,22 +76,39 @@ public class Solution {
     }
 
     //复习下中序遍历，迭代遍历
-    public List<Integer> inorderTraversal(TreeNode root){
-        List<Integer> result=new ArrayList<>();
-        if(root==null)
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        if (root == null)
             return result;
-        Deque<TreeNode> deque=new LinkedList<>();
-        TreeNode cur=root;
-        while(!deque.isEmpty()||cur!=null){
-            if(cur!=null){
+        Deque<TreeNode> deque = new LinkedList<>();
+        TreeNode cur = root;
+        while (!deque.isEmpty() || cur != null) {
+            if (cur != null) {
                 deque.push(cur);
-                cur=cur.left;
-            }else{
+                cur = cur.left;
+            } else {
                 cur = deque.pop();
                 result.add(cur.val);
-                cur=cur.right;
+                cur = cur.right;
             }
         }
         return result;
+    }
+
+    //复习，深度优先遍历，递归法
+    public TreeNode invertTree5(TreeNode root) {
+        swap(root);
+        return root;
+    }
+
+    private void swap(TreeNode node) {
+        if (node == null)
+            return;
+
+        swap(node.left);
+        swap(node.right);
+        TreeNode temp = node.left;
+        node.left = node.right;
+        node.right = temp;
     }
 }

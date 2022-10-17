@@ -1,4 +1,4 @@
-package 代码随想录.二叉树.二叉树的层序遍历II;
+package 代码随想录.二叉树.层序遍历.二叉树的层序遍历II;
 
 import 代码随想录.二叉树.TreeNode;
 
