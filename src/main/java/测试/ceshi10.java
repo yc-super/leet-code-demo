@@ -8,9 +8,13 @@ public class ceshi10 {
         /*AtomicInteger integer=new AtomicInteger();
         boolean b = integer.compareAndSet(1, 2);
         System.out.println(b);*/
-        String str="abcde";
+       /* String str="abcde";
         StringBuilder sb=new StringBuilder();
         sb.append(str,1,3);
-        System.out.println(sb);
+        System.out.println(sb);*/
+
+        System.out.println(3<<3);
+        int ii=3;
+        System.out.println(Math.pow(3,4));
     }
 }
