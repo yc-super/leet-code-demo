@@ -13,8 +13,13 @@ public class ceshi10 {
         sb.append(str,1,3);
         System.out.println(sb);*/
 
-        System.out.println(3<<3);
+       /* System.out.println(3<<3);
         int ii=3;
-        System.out.println(Math.pow(3,4));
+        System.out.println(Math.pow(3,4));*/
+
+        Integer i1=127;
+        Integer i2=127;
+        System.out.println(i1==i2);
+
     }
 }
