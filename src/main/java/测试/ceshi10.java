@@ -17,9 +17,18 @@ public class ceshi10 {
         int ii=3;
         System.out.println(Math.pow(3,4));*/
 
-        Integer i1=127;
-        Integer i2=127;
-        System.out.println(i1==i2);
+//        Integer i1=127;
+//        Integer i2=127;
+//        System.out.println(i1==i2);
+
+        String str="abcd";
+        StringBuilder sb=new StringBuilder("abcd");
+
+        System.out.println(str.substring(1));
+        System.out.println(sb.substring(1));
+
+        System.out.println(str);
+        System.out.println(sb);
 
     }
 }
