@@ -28,4 +28,42 @@ public class Code {
         }
         return Math.min(dp[cost.length-1],dp[cost.length-2]);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //动态规划
+    public int minCostClimbingStairs2(int[] cost) {
+        int len=cost.length;
+        //1.k代表爬到第k个楼梯，dp[k]代表需要花费的最小费用
+        int[] dp=new int[len];
+        //2.确定递归公式
+//        dp[k]=min(dp[k-1],dp[k-2])+cost[k];
+
+        //初始化
+        dp[0]=cost[0];
+        dp[1]=cost[1];
+
+        //顺序：从前到后
+        for (int i = 2; i < len; i++) {
+            dp[i]=Math.min(dp[i-2],dp[i-1])+cost[i];
+        }
+        //举例推导
+        return Math.min(dp[len-1],dp[len-2]);
+    }
+
 }

@@ -1,6 +1,7 @@
 package 代码随想录.动态规划专练.代码随想录.不同路径II;
 /*
-*
+*相比 不同路径 ，这道题只是多了个障碍，只要在推导dp[k]时dp[k][j]=dp[k-1][j]+dp[k][j-1];注意obstacleGrid[k-1][j]和obstacleGrid[k][j-1]是否为1
+* ，也就是上面或左面是否有障碍物就行了
 *
 * */
 public class Code {

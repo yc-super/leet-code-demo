@@ -1,5 +1,5 @@
 package 代码随想录.动态规划专练.代码随想录.斐波那契数;
-
+//方式2，用i,j,k3个变量就可以了
 public class Code2 {
     public static void main(String[] args) {
         int n=4;
