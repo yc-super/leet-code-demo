@@ -13,36 +13,38 @@ public class Solution {
         return result;
     }
 
-    private int result=0;
+    private int result = 0;
+
     private void countNodes1(TreeNode root) {
-        if(root==null)
-            return ;
+        if (root == null)
+            return;
         result++;
         countNodes1(root.left);
         countNodes1(root.right);
     }
+
     private int countNodes2(TreeNode root) {
-        if(root==null)
+        if (root == null)
             return 0;
         int r1 = countNodes2(root.left);
         int r2 = countNodes2(root.right);
 
-        return r1+r2+1;
+        return r1 + r2 + 1;
     }
 
     //迭代
     public int countNodes3(TreeNode root) {
-        if(root==null)
+        if (root == null)
             return 0;
-        Deque<TreeNode> deque=new LinkedList<>();
+        Deque<TreeNode> deque = new LinkedList<>();
         deque.push(root);
-        int result=0;
-        while(!deque.isEmpty()){
+        int result = 0;
+        while (!deque.isEmpty()) {
             TreeNode node = deque.pop();
             result++;
-            if(node.right!=null)
+            if (node.right != null)
                 deque.push(node.right);
-            if(node.left!=null)
+            if (node.left != null)
                 deque.push(node.left);
         }
         return result;
@@ -51,48 +53,50 @@ public class Solution {
     //按照完全二叉树处理，递归
     public int countNodes4(TreeNode root) {
         //出口
-        if(root==null)
+        if (root == null)
             return 0;
-        int leftDetph=0;
-        int rightDetpth=0;
-        TreeNode left=root.left;
-        TreeNode right=root.right;
-        while(left!=null) {
+        int leftDetph = 0;
+        int rightDetpth = 0;
+        TreeNode left = root.left;
+        TreeNode right = root.right;
+        while (left != null) {
             left = left.left;
             leftDetph++;
         }
-        while(right!=null) {
+        while (right != null) {
             right = right.right;
             rightDetpth++;
         }
 
-        if(leftDetph==rightDetpth){
-            return (2<<leftDetph)-1;
+        if (leftDetph == rightDetpth) {
+            return (2 << leftDetph) - 1;
         }
 
-        return countNodes4(root.left)+countNodes4(root.right)+1;
+        return countNodes4(root.left) + countNodes4(root.right) + 1;
 
     }
-    public int countNodes5(TreeNode root) {
-        if(root == null) {
+
+
+
+    public int countNodes6(TreeNode root) {
+        if (root == null)
             return 0;
-        }
-        int leftDepth = getDepth(root.left);
-        int rightDepth = getDepth(root.right);
-        if (leftDepth == rightDepth) {// 左子树是满二叉树
-            // 2^leftDepth其实是 （2^leftDepth - 1） + 1 ，左子树 + 根结点
-            return (1 << leftDepth) + countNodes5(root.right);
-        } else {// 右子树是满二叉树
-            return (1 << rightDepth) + countNodes5(root.left);
-        }
-    }
 
-    private int getDepth(TreeNode root) {
-        int depth = 0;
-        while (root != null) {
-            root = root.left;
-            depth++;
+        TreeNode left = root.left;
+        TreeNode right = root.right;
+        int depth1 = 1, depth2 = 1;
+        while (left != null) {
+            depth1++;
+            left = left.left;
         }
-        return depth;
+        while (right != null) {
+            depth2++;
+            right = right.right;
+        }
+
+        if (depth1 == depth2) {
+            return (1 << depth1) - 1;
+        }
+        return countNodes6(root.left) + countNodes6(root.right) + 1;
     }
 }

@@ -5,43 +5,63 @@ import 代码随想录.二叉树.TreeNode;
 public class Solution {
     //递归法
     public TreeNode trimBST(TreeNode root, int low, int high) {
-        if(root==null)
+        if (root == null)
             return null;
 
-        if(root.val<low){
-            return trimBST(root.right,low,high);
-        }else if (root.val>high) {
+        if (root.val < low) {
+            return trimBST(root.right, low, high);
+        } else if (root.val > high) {
             return trimBST(root.left, low, high);
         }
 
-        root.left=trimBST(root.left,low,high);
-        root.right=trimBST(root.right,low,high);
+        root.left = trimBST(root.left, low, high);
+        root.right = trimBST(root.right, low, high);
 
         return root;
     }
-//    递归法改进
+
+    //    递归法改进
     public TreeNode trimBST2(TreeNode root, int low, int high) {
 
-        if(root.val<low){
-            if(root.right!=null) {
+        if (root.val < low) {
+            if (root.right != null) {
                 return trimBST2(root.right, low, high);
-            }else {
+            } else {
                 return null;
             }
-        }else if (root.val>high) {
-            if(root.left!=null) {
+        } else if (root.val > high) {
+            if (root.left != null) {
                 return trimBST2(root.left, low, high);
-            }else{
+            } else {
                 return null;
             }
         }
 
-        if(root.left!=null) {
+        if (root.left != null) {
             root.left = trimBST2(root.left, low, high);
         }
-        if(root.right!=null) {
+        if (root.right != null) {
             root.right = trimBST2(root.right, low, high);
         }
+
+        return root;
+    }
+
+
+    //递归法
+    public TreeNode trimBST3(TreeNode root, int low, int high) {
+        if (root == null)
+            return null;
+
+        if (root.val < low) {
+            return trimBST3(root.right, low, high);
+        }
+        if (root.val > high) {
+            return trimBST3(root.left, low, high);
+        }
+
+        root.left = trimBST3(root.left, low, high);
+        root.right = trimBST3(root.right, low, high);
 
         return root;
     }
