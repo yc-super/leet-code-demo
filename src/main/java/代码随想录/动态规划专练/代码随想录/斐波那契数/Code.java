@@ -22,4 +22,24 @@ public class Code {
         }
         return fixProblem(n - 1) + fixProblem(n - 2);
     }
+
+    //dp
+    public int fib2(int n) {
+        //1.确定dp及下标含义，dp[k]:下表为k时，对应的斐波那契数
+        //2.确定递推公式，dp[k]=dp[k-1]+dp[k-2]
+        //3.初始化
+        //4.确定遍历顺序
+        //5.举例推导
+        if (n < 2)
+            return n;
+
+        int[] dp = new int[n + 1];
+        dp[0] = 0;
+        dp[1] = 1;
+        for (int i = 2; i <= n; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+        return dp[n];
+    }
+
 }

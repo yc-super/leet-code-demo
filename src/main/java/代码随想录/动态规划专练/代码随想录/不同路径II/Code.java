@@ -61,4 +61,34 @@ public class Code {
         }
         return dp[m-1][n-1];
     }
+
+    public static int uniquePathsWithObstacles2(int[][] obstacleGrid) {
+        if(obstacleGrid[0][0]==1)
+            return 0;
+        int m=obstacleGrid.length;
+        int n=obstacleGrid[0].length;
+        int[][] dp=new int[m][n];
+        int index;
+        for (index = 0; index < n; index++) {
+            if(obstacleGrid[0][index]==0) {
+                dp[0][index] = 1;
+            }else{
+                break;
+            }
+        }
+        for (index = 0; index < m; index++) {
+            if(obstacleGrid[index][0]==0) {
+                dp[index][0] = 1;
+            }else{
+                break;
+            }
+        }
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                if(obstacleGrid[i][j]==0)
+                    dp[i][j]=dp[i-1][j]+dp[i][j-1];
+            }
+        }
+        return dp[m-1][n-1];
+    }
 }

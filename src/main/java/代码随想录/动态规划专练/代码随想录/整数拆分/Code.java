@@ -49,7 +49,7 @@ public class Code {
 
     //dp
     public int integerBreak2(int n) {
-        if(n==2){
+        if (n == 2) {
             return 1;
         }
         //1.确定下标及dp数组含义，k代表整数k，dp[k]代表乘积最大值
@@ -62,7 +62,7 @@ public class Code {
         //4.顺序：从前往后
         for (int i = 4; i <= n; i++) {
             for (int j = i - 1; j >= i / 2; j--) {
-                dp[i] = Math.max(dp[i], Math.max(dp[j],j) * (i - j));
+                dp[i] = Math.max(dp[i], Math.max(dp[j], j) * (i - j));
             }
         }
         return dp[n];

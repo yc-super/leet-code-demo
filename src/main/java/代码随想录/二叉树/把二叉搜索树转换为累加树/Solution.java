@@ -4,17 +4,18 @@ import 代码随想录.二叉树.TreeNode;
 
 public class Solution {
     public TreeNode convertBST(TreeNode root) {
-        if(root==null)
+        if (root == null)
             return null;
 
         convertBST(root.right);
 
-        sum+=root.val;
-        root.val=sum;
+        sum += root.val;
+        root.val = sum;
 
         convertBST(root.left);
 
         return root;
     }
-    private int sum=0;
+
+    private int sum = 0;
 }
