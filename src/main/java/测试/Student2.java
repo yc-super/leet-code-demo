@@ -7,20 +7,20 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Student implements Comparable<Student>{
+public class Student2{
     private String id;
     private String name;
     private Integer age;
     private Integer mathScore;
-    public Student(String name){
+    public Student2(String name){
         this.name=name;
     }
-    Student s;
-    public Student(String name,Student s){
+    Student2 s;
+    public Student2(String name, Student2 s){
         this.name=name;
         this.s=s;
     }
-    public Student(Integer age){
+    public Student2(Integer age){
         this.age=age;
     }
     @Override
@@ -32,8 +32,4 @@ public class Student implements Comparable<Student>{
         return result;
     }
 
-    @Override
-    public int compareTo(Student o) {
-        return this.age-o.age;
-    }
 }
