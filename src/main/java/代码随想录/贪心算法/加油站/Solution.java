@@ -17,6 +17,7 @@ public class Solution {
         System.out.println(new Solution().canCompleteCircuit(gas, cost));
     }
 
+    //我自己想的贪心，虽然优化了很多，但代码有点冗余，导致效率不高
     public int canCompleteCircuit(int[] gas, int[] cost) {
         int len = gas.length;
         int[] temp = new int[len];
@@ -54,5 +55,23 @@ public class Solution {
                 return i;
         }
         return -1;
+    }
+
+    //代码随想录 贪心，效率高多了。感觉关键点是用一个totalCount来确保一定可以走一圈/一定走不完一圈
+    public int canCompleteCircuit2(int[] gas, int[] cost) {
+        int totalCount=0;
+        int curCount=0;
+        int index=0;
+        for (int i = 0; i < gas.length; i++) {
+            totalCount+=gas[i]-cost[i];
+            curCount+=gas[i]-cost[i];
+            if(curCount<0){
+                index=i+1;
+                curCount=0;
+            }
+        }
+        if(totalCount<0)
+            return -1;
+        return index%gas.length;
     }
 }

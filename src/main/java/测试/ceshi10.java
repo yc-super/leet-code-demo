@@ -1,34 +1,16 @@
 package 测试;
 
 import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ceshi10 {
     public static void main(String[] args) {
-        /*AtomicInteger integer=new AtomicInteger();
-        boolean b = integer.compareAndSet(1, 2);
-        System.out.println(b);*/
-       /* String str="abcde";
-        StringBuilder sb=new StringBuilder();
-        sb.append(str,1,3);
-        System.out.println(sb);*/
-
-       /* System.out.println(3<<3);
-        int ii=3;
-        System.out.println(Math.pow(3,4));*/
-
-//        Integer i1=127;
-//        Integer i2=127;
-//        System.out.println(i1==i2);
-
-        String str="abcd";
-        StringBuilder sb=new StringBuilder("abcd");
-
-        System.out.println(str.substring(1));
-        System.out.println(sb.substring(1));
-
-        System.out.println(str);
-        System.out.println(sb);
-
+        LinkedList<Integer> list=new LinkedList<>();
+        list.add(55);
+        list.add(1,100);
+        System.out.println(list);
     }
 }
