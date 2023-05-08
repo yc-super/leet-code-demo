@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Student implements Comparable<Student>{
     private String id;
-    private String name;
-    private Integer age;
+    private String name="xiaoming";
+    private Integer age=88;
     private Integer mathScore;
     public Student(String name){
         this.name=name;
