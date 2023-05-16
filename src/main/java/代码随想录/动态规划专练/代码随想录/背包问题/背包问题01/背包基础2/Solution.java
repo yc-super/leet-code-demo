@@ -12,8 +12,12 @@ public class Solution {
         dp[0] = 0;
         for (int i = 0; i < weight.length; i++) {
             for (int j = bagWeight; j >= weight[i]; j--) {
+//            for (int j = weight[i]; j <=bagWeight; j++) {//这里不能正序的原因：物品会被放多次。对应的，完全背包应该正序
                 dp[j] = Math.max(dp[j], dp[j - weight[i]] + value[i]);
             }
+        }
+        for (int i = 0; i < dp.length; i++) {
+            System.out.println(dp[i]);
         }
         return dp[bagWeight];
     }

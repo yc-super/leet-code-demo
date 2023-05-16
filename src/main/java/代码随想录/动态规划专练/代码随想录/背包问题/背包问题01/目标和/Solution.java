@@ -2,8 +2,9 @@ package 代码随想录.动态规划专练.代码随想录.背包问题.背包�
 
 public class Solution {
     public static void main(String[] args) {
-
-//        System.out.println(new Solution().findTargetSumWays());
+        int[] nums={1, 1, 1, 1, 1};
+        int target=3;
+        System.out.println(new Solution().findTargetSumWays(nums,target));
     }
     public int findTargetSumWays(int[] nums, int target) {
         int sum = 0;
