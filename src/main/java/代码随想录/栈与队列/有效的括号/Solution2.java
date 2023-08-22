@@ -13,20 +13,28 @@ public class Solution2 {
         System.out.println(isValid(s));
     }
     public static boolean isValid(String s) {
-        Stack<Character> stack=new Stack();
-        char c;
+        Stack<Character> stack=new Stack<>();
         for (int i = 0; i < s.length(); i++) {
-            c=s.charAt(i);
-            if(c=='('){
-                stack.push(')');
-            }else if(c=='['){
-                stack.push(']');
-            }else if(c=='{'){
-                stack.push('}');
-            }else if(stack.size()==0||stack.peek()!=c){
+            char c=s.charAt(i);
+            if(c=='('||c=='['||c=='{') {
+                stack.push(c);
+                continue;
+            }
+            if(stack.isEmpty()){
                 return false;
-            }else{
-                stack.pop();
+            }
+            if(c==')'){
+                if(stack.pop()!='('){
+                    return false;
+                }
+            }else if(c==']'){
+                if(stack.pop()!='['){
+                    return false;
+                }
+            }else if(c=='}'){
+                if(stack.pop()!='{'){
+                    return false;
+                }
             }
         }
         return stack.isEmpty();

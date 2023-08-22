@@ -1,9 +1,6 @@
 package 代码随想录.字符串.找出字符串中第一个匹配项的下标;
 
 public class code {
-    public static void main(String[] args) {
-        System.out.println(new code().strStr("abcd","cd"));
-    }
     public int strStr(String haystack, String needle) {
         int len1 = haystack.length();
         int len2 = needle.length();
@@ -22,4 +19,10 @@ public class code {
         }
         return -1;
     }
+
+
+    public static void main(String[] args) {
+        System.out.println(new code().strStr("abcd","cd"));
+    }
+
 }
