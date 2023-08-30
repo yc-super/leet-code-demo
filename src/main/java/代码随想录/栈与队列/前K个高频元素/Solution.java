@@ -14,7 +14,10 @@ import java.util.PriorityQueue;
 * */
 public class Solution {
     public static void main(String[] args) {
-        int[] nums = {1,1,1,2,2,3,3};
+//        int[] nums = {1,1,1,2,2,3,3};
+//        int[] nums = {5,4,3,2,5,4,3,5,4};
+        int[] nums = {1,2,2,3,3,3,4,4,4,4,5};
+//        int[] nums = {1,2,3,4,1};
         int k = 2;
         int[] ints = new Solution().topKFrequent2(nums, k);
         for(int i:ints){
