@@ -20,6 +20,10 @@ public class Student implements Comparable<Student>{
     public Student(String name){
         this.name=name;
     }
+    public Student(String name,Integer age){
+        this.name=name;
+        this.age=age;
+    }
     Student s;
     public Student(String name,Student s){
         this.name=name;
