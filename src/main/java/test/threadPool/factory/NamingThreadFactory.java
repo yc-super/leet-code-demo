@@ -1,4 +1,4 @@
-package 测试.threadPool.factory;
+package test.threadPool.factory;
 
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;

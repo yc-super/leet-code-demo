@@ -1,26 +1,33 @@
-package 测试;
+package test;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Student2{
+public class Student implements Comparable<Student>{
     private String id;
-    private String name;
-    private Integer age;
+    private String name="xiaoming";
+    private Integer age=88;
     private Integer mathScore;
-    public Student2(String name){
+    int tempValue;
+    public Student(String name){
         this.name=name;
     }
-    Student2 s;
-    public Student2(String name, Student2 s){
+    public Student(String name,Integer age){
+        this.name=name;
+        this.age=age;
+    }
+    Student s;
+    public Student(String name,Student s){
         this.name=name;
         this.s=s;
     }
-    public Student2(Integer age){
+    public Student(Integer age){
         this.age=age;
     }
     @Override
@@ -32,4 +39,8 @@ public class Student2{
         return result;
     }
 
+    @Override
+    public int compareTo(Student o) {
+        return this.age-o.age;
+    }
 }

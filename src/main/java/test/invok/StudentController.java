@@ -1,8 +1,8 @@
-package 测试.invok;
+package test.invok;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import 测试.Student;
+import test.Student;
 
 @RestController
 @RequestMapping("/stu")

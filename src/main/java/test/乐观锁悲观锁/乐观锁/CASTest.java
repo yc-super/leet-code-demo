@@ -1,11 +1,8 @@
-package 测试.乐观锁悲观锁.乐观锁;
+package test.乐观锁悲观锁.乐观锁;
 
 import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class CASTest {

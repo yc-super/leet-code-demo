@@ -1,7 +1,6 @@
-package 测试.invok;
+package test.invok;
 
 import com.alibaba.fastjson.JSONObject;
-import org.apache.catalina.core.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.InvocationTargetException;

@@ -1,10 +1,8 @@
 package LeetCode_Hot100.和为K的子数组;
 
-import com.alibaba.fastjson.JSONObject;
-import 测试.Student;
+import test.Student;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Solution {
 //    public static void main(String[] args) {

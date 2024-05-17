@@ -1,9 +1,8 @@
-package 测试.CountDownLatch;
+package test.CountDownLatch;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 
 public class CountDownLatchExample {
     // 请求的数量

@@ -1,4 +1,4 @@
-package 测试;
+package test;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.MemoryPoolMXBean;

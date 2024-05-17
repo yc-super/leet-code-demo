@@ -1,4 +1,4 @@
-package 测试.比较器;
+package test.比较器;
 
 import java.util.ArrayList;
 import java.util.List;

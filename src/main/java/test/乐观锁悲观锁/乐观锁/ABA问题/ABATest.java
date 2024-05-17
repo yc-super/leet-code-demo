@@ -1,4 +1,4 @@
-package 测试.乐观锁悲观锁.乐观锁.ABA问题;
+package test.乐观锁悲观锁.乐观锁.ABA问题;
 
 import lombok.SneakyThrows;
 

@@ -1,12 +1,17 @@
-package 测试.cyclicBarrier;
+package test.cyclicBarrier;
 
-import java.util.concurrent.*;
+import java.util.concurrent.BrokenBarrierException;
+import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
-public class CyclicBarrierExample1 {
+public class CyclicBarrierExample2 {
     // 请求的数量
     private static final int threadCount = 550;
     // 需要同步的线程数量
-    private static final CyclicBarrier cyclicBarrier = new CyclicBarrier(5);
+    private static final CyclicBarrier cyclicBarrier = new CyclicBarrier(5, () -> {
+        System.out.println("------当线程数达到之后，优先执行1111------");
+    });
 
     public static void main(String[] args) throws InterruptedException {
         // 创建线程池
@@ -32,13 +37,7 @@ public class CyclicBarrierExample1 {
 
     public static void test(int threadnum) throws InterruptedException, BrokenBarrierException {
         System.out.println("threadnum:" + threadnum + "is ready");
-        try {
-            /**等待60秒，保证子线程完全执行结束。如果时间比较短会抛出异常*/
-            cyclicBarrier.await(60, TimeUnit.SECONDS);
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("-----CyclicBarrierException------");
-        }
+        cyclicBarrier.await();
         System.out.println("threadnum:" + threadnum + "is finish");
     }
 

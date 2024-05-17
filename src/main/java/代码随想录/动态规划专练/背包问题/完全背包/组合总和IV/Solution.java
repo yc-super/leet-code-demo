@@ -1,7 +1,13 @@
 package 代码随想录.动态规划专练.背包问题.完全背包.组合总和IV;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.serializer.SerializerFeature;
+import test.Student;
+
 import java.util.HashSet;
-import java.util.Map;
+import java.util.List;
 import java.util.Set;
 
 public class Solution {
@@ -20,10 +26,28 @@ public class Solution {
 
 
     public static void main(String[] args) {
-        int[] nums = {1, 2};
-        int target = 10;
-        //[0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
-        System.out.println(new Solution().combinationSum5(nums, target));
+        // JSONObject转Java Object:
+        Student student = new Student();
+        student.setName("yc");
+        String s = JSON.toJSONString(student);
+//        String s = JSON.toJSONString(student, SerializerFeature.WriteMapNullValue);
+        JSONObject jsonObject = JSONObject.parseObject(s);
+        // 这里注意，实体类所在包路径中不能包含中文名
+        Student student1 = jsonObject.toJavaObject(Student.class);
+        System.out.println(student1);
+
+        // JSONObject转Java Object:
+        Student student2 = new Student();
+        student2.setName("yc2");
+        student2.setAge(19);
+        String s2 = JSON.toJSONString(student2);
+        JSONObject jsonObject2 = JSONObject.parseObject(s2);
+        JSONArray jsonArray=new JSONArray();
+        jsonArray.add(jsonObject);
+        jsonArray.add(jsonObject2);
+        //注意，toJavaList需要版本为1.2.71的com.alibaba.fastjson依赖
+        List<Student> list = jsonArray.toJavaList(Student.class);
+        System.out.println(list);
     }
 
     // 自己想的动态规划

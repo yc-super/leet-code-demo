@@ -1,8 +1,7 @@
-package 测试.模版方法模式;
+package test.模版方法模式;
 
 import java.math.BigDecimal;
 import java.util.Random;
-import java.util.concurrent.Semaphore;
 import java.util.function.Consumer;
 // https://mp.weixin.qq.com/s/zpScSCktFpnSWHWIQem2jg
 public class BankBusinessHandler {

@@ -1,17 +1,9 @@
-package 测试.threadPool;
+package test.threadPool;
 
-import com.google.common.collect.Lists;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
-import com.sun.xml.internal.ws.util.CompletedFuture;
-import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import 测试.threadPool.factory.NamingThreadFactory;
 
-import java.lang.ref.SoftReference;
-import java.sql.Time;
-import java.util.ArrayList;
 import java.util.concurrent.*;
-import java.util.function.Supplier;
 
 @Slf4j
 public class Test {
