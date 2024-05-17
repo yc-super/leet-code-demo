@@ -14,7 +14,7 @@ public class Student implements Comparable<Student>{
     private String name="xiaoming";
     private Integer age=88;
     private Integer mathScore;
-    int tempValue;// 1
+    int tempValue;// 2
     public Student(String name){
         this.name=name;
     }
