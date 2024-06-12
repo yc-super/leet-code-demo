@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 /*
 * 用时击败5.73%，内存击败68.51%
-* 有一种更好的办法，看题解中的王尼玛
+* 有一种更好的办法，看题解中的王尼玛，两种方法都很好
 * */
 class Solution {
     public static void main(String[] args) {
