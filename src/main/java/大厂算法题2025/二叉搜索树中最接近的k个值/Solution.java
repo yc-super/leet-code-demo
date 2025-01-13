@@ -8,6 +8,9 @@ import java.util.*;
 
 // 考察树的基本知识、PriorityQueue、对二叉搜索树有序性的利用
 // 有3个思路：小顶堆、大顶堆、二分法。其中前两种比较好想，但是都没有或者没能完全利用到二叉搜索树的性质
+
+// 题目描述：https://blog.csdn.net/zhizhengguan/article/details/116591967
+// 给定一个不为空的二叉搜索树和一个目标值 target，请在该二叉搜索树中找到最接近目标值 target 的 k 个值。
 public class Solution {
     public static void main(String[] args) {
         Integer[] array = {4, 2, 5, 1, 3};
