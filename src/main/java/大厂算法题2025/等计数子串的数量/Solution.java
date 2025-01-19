@@ -1,10 +1,11 @@
 package 大厂算法题2025.等计数子串的数量;
 
+import java.util.Arrays;
 import java.util.HashSet;
 
 public class Solution {
     public static void main(String[] args) {
-        int method = new Solution().method("aaabcbbcc", 3);
+        int method = new Solution().method4("aaabcbbcc", 2);
         System.out.println(method);
     }
 
@@ -45,7 +46,42 @@ public class Solution {
         return result;
     }
 
-    // 方法2，滑动窗口，遍历的同时记录出现的次数，同时进行左指针右移
+    // 记录了各个字母出现的次数,可以处理遍历过程中某个字母数目已经大于count。但是时间复杂度为O(n2)
+    public int method3(String s, int count) {
+        if (s.length() < count)
+            return 0;
+        int[] array = new int[26];// 记录各个小写字母出现的次数
+        int num = 0;// 记录区间内小写字母的种类数
+        int result = 0;
+        for (int i = 0; i < s.length(); i++) {
+//            if(i!=0){
+//                char c = s.charAt(i);
+//                array[c-'a']--;
+//                if(array[c-'a']==0)
+//                    num--;
+//
+//            }
+            num = 0;
+            Arrays.fill(array, 0);
+            for (int j = i; j < s.length(); j++) {
+                char c = s.charAt(j);
+                if (array[c - 'a'] == 0) {
+                    num++;
+                }
+                if (array[c - 'a'] == count) {
+                    break;
+                }
+                array[c - 'a']++;
+                if ((j - i + 1) % count != 0)
+                    continue;
+                if (num * count == (j - i + 1))
+                    result++;
+            }
+        }
+        return result;
+    }
+
+    //题解方法，滑动窗口，遍历的同时记录出现的次数，同时进行左指针右移
     public int equalCountSubstrings(String s, int count) {
         int n = s.length();
         if (n < count) {
@@ -90,6 +126,49 @@ public class Solution {
             }
         }
         return ans;
+    }
+
+    // 看了题解做出来的
+    public int method4(String s, int count) {
+        if (s.length() < count)
+            return 0;
+        int len = s.length();
+        int result = 0;// 最终结果
+        // i的含义：不同字符个数。那么最长的子串长度即为 不同字符个数*count，不同字符最多有26个
+        for (int i = 1; i * count <= len && i <= 26; i++) {
+            int left = 0;
+            int right = 0;
+            int[] array = new int[26];// 记录各个字符出现的次数，滑动窗口
+            int num = 0;// 记录有多少个不同字符
+            while (right < len) {
+                char c = s.charAt(right);
+                if (array[c - 'a'] == 0) {// 如果第一次出现，则不同字符个数+1
+                    num++;
+                }
+                array[c - 'a']++;// 该字母个数+1
+                while (array[c - 'a'] > count) {// 如果新出现的字母个数大于count，则当前子串不符合要求，那么左指针就要右移。
+                    // 循环直到右指针所在字符个数小于等于count
+                    char c1 = s.charAt(left);
+                    array[c1 - 'a']--;// 右移之前需要把左指针所在字符出现个数-1
+                    if (array[c1 - 'a'] == 0)// 如果变为0，那么不同字符个数要-1
+                        num--;
+                    left++;
+                }
+                if (right - left + 1 == i * count) {// 如果区间大小刚好等于 不同字符个数*count，那么检查下是否满足要求
+                    if (num == i) {// 实际不同字符个数=期待的不同字符个数
+                        result++;
+                    }
+                    // 左指针右移
+                    char c1 = s.charAt(left);
+                    array[c1 - 'a']--;// 右移之前需要把左指针所在字符出现个数-1
+                    if (array[c1 - 'a'] == 0)// 如果变为0，那么不同字符个数要-1
+                        num--;
+                    left++;
+                }
+                right++;
+            }
+        }
+        return result;
     }
 
 }
