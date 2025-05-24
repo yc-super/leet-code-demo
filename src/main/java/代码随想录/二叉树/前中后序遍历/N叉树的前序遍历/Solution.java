@@ -1,6 +1,5 @@
 package 代码随想录.二叉树.前中后序遍历.N叉树的前序遍历;
 
-import com.sun.org.apache.regexp.internal.RE;
 
 import java.util.ArrayList;
 import java.util.Deque;

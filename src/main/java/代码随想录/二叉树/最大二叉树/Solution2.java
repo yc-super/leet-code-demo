@@ -1,6 +1,5 @@
 package 代码随想录.二叉树.最大二叉树;
 
-import sun.reflect.generics.tree.Tree;
 import 代码随想录.二叉树.TreeNode;
 
 public class Solution2 {
