@@ -11,6 +11,38 @@ public class Solution {
         System.out.println();
     }
 
+    // 灵神的题解
+    public List<List<Integer>> kSmallestPairs111(int[] nums1, int[] nums2, int k) {
+        List<List<Integer>> result=new ArrayList<>(k);
+        PriorityQueue<int[]> priorityQueue = new PriorityQueue<>(k, new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                return o1[0]-o2[0];
+            }
+        });
+
+        priorityQueue.add(new int[]{nums1[0]+nums2[0],0,0});
+
+        while(result.size()<k){
+            int[] poll = priorityQueue.poll();
+            List<Integer> ll=new ArrayList<>();
+            int i=poll[1];
+            int j=poll[2];
+            ll.add(i);
+            ll.add(j);
+            result.add(ll);
+
+            if(poll[2]==0&&i+1<nums1.length){
+                priorityQueue.add(new int[]{nums1[i+1]+nums2[j],i+1,j});
+            }
+
+            if(j+1<nums2.length) {
+                priorityQueue.add(new int[]{nums1[i] + nums2[j + 1], i, j + 1});
+            }
+        }
+        return result;
+    }
+
     /*
      * 112233
      * 156
