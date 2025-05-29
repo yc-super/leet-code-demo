@@ -1,4 +1,4 @@
-package 宫水三叶.查找和最小的K对数字;
+package 灵神.第k大第k小题单.查找和最小的K对数字;
 
 import java.util.*;
 
