@@ -11,7 +11,7 @@ public class Solution {
         System.out.println();
     }
 
-    // 灵神的题解
+    // 灵神的题解2，优化，一开始没必要入队很多元素
     public List<List<Integer>> kSmallestPairs111(int[] nums1, int[] nums2, int k) {
         List<List<Integer>> result=new ArrayList<>(k);
         PriorityQueue<int[]> priorityQueue = new PriorityQueue<>(k, new Comparator<int[]>() {

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 
-// 灵神的题解
+// 灵神的题解1
 class Solution2 {
     public static void main(String[] args) {
         int[] nums1 = {1, 1, 2, 2, 3, 3};
