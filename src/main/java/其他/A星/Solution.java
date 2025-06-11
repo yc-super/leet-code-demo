@@ -1,12 +1,9 @@
 package 其他.A星;
 
-import org.redisson.api.RLock;
-import org.redisson.api.RedissonClient;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import javax.annotation.Resource;
-import java.util.*;
-import java.util.concurrent.TimeUnit;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.PriorityQueue;
 
 /*
  * A*算法，array代表棋盘，值为0代表可走的路径，值为2代表起始点，值为3代表终点，值为4代表障碍物
