@@ -37,7 +37,7 @@ public class Solution {
      *
      * */
 
-    public int integerReplacementBFS(int n)  public int integerReplacement(int n) {
+    public int integerReplacementBFS(int n){
         return 1;
     }
 
